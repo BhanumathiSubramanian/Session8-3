@@ -1,0 +1,77 @@
+
+class A extends Thread
+{
+    public void run()
+  {
+    for(int i =0 ;i<=10;i++)
+    {
+      System.out.println("A: " + i);
+      try
+      {
+      Thread.sleep(2000);
+     
+      }
+      catch (InterruptedException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    
+  }
+  
+}
+class B extends Thread
+{
+  
+ public void run()
+  {
+    for(int i =0 ;i<=10;i++)
+    {
+      System.out.println("B: " + i);
+      try
+      {
+      Thread.sleep(2000);
+      }
+      catch (InterruptedException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    
+  }
+}
+class C extends Thread
+{
+ public void run()
+  {
+    for(int i =0 ;i<=10;i++)
+    {
+      System.out.println("C: " + i);
+      try
+      {
+      Thread.sleep(2000);
+      }
+      catch (InterruptedException e)
+      {
+        e.printStackTrace();
+      }
+    }
+    
+  }
+  
+}
+class ThreadPriority {
+  public static void main(String[] args) throws InterruptedException
+  {
+     A t1 = new A();
+     B t2 = new B();
+     C t3 = new C();
+     t1.setPriority(10);
+     t3.setPriority(5);
+     t2.setPriority(1);
+     t1.start();
+     t2.start();
+     t3.start();
+     
+   }
+}
